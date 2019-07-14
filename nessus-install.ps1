@@ -1,8 +1,16 @@
 #To run this Powershell script, make sure you run: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 #Put your Tenable.io linking key here
 $LINKINGKEY="--------Your Tenable.io Linking Key Goes here---------------"
+
+#Pick 64-bit or 32-bit Nessus installer variables
+#For 64-bit Nessus
 $NESSUSINSTALLER="Nessus-8.5.1-x64.msi"
 $NESSUSTITLE="Tenable Nessus (x64) - InstallShield Wizard"
+
+#For 32-bit Nessus
+$NESSUSINSTALLER="Nessus-8.5.1-win32.msi"
+$NESSUSTITLE="Tenable Nessus - InstallShield Wizard"
+
 
 #Additional requirements, the winpcap_4_1_3.exe and 
 #Nessus-8.5.1-x64.msi must be in this directory
