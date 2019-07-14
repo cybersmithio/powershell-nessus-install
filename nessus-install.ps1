@@ -13,7 +13,7 @@ $NESSUSTITLE="Tenable Nessus - InstallShield Wizard"
 
 
 #Additional requirements, the winpcap_4_1_3.exe and 
-#Nessus-8.5.1-x64.msi must be in this directory
+# the Nessus installer file in the local directory.
 
 #Make sure WinPcap and Nessus are not already installed otherwise this script will fail.
 
