@@ -1,7 +1,8 @@
 #To run this Powershell script, make sure you run: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 #Put your Tenable.io linking key here
 $LINKINGKEY="--------Your Tenable.io Linking Key Goes here---------------"
-
+$NESSUSINSTALLER="Nessus-8.5.1-x64.msi"
+$NESSUSTITLE="Tenable Nessus (x64) - InstallShield Wizard"
 
 #Additional requirements, the winpcap_4_1_3.exe and 
 #Nessus-8.5.1-x64.msi must be in this directory
@@ -36,12 +37,12 @@ $wpcshell.SendKeys("%F")
 sleep 5
 
 #Start the installer and wait for it to run
-msiexec.exe /i Nessus-8.5.1-x64.msi /L*v! nessus-msi.log
+msiexec.exe /i $NESSUSINSTALLER /L*v! nessus-msi.log
 sleep 5
 
 #Get focus on the installer
 $wshell = New-Object -ComObject wscript.shell;
-$wshell.AppActivate('Tenable Nessus (x64) - InstallShield Wizard')
+$wshell.AppActivate($NESSUSTITLE)
 Sleep 1
 
 #Click Next and wait
