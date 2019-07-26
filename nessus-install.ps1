@@ -1,23 +1,31 @@
-#To run this Powershell script, make sure you run: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
-#Put your Tenable.io linking key here
+###
+### To run this Powershell script, make sure you run: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+### Make sure to have the winpcap_4_1_3.exe and Nessus installer file in the local directory.
+###
+
+###
+### End of User configuration variables
+###
+# Put your Tenable.io linking key here
 $LINKINGKEY="--------Your Tenable.io Linking Key Goes here---------------"
 $NESSUSUSER="james"
 $NESSUSPASS="password123"
 
-#Pick 64-bit or 32-bit Nessus installer variables
-
-#For 32-bit Nessus
+# Pick 64-bit or 32-bit Nessus installer variables
+# For 32-bit Nessus
 $NESSUSINSTALLER="Nessus-8.5.1-win32.msi"
 $NESSUSTITLE="Tenable Nessus - InstallShield Wizard"
 
-#For 64-bit Nessus
+# For 64-bit Nessus
 $NESSUSINSTALLER="Nessus-8.5.1-x64.msi"
 $NESSUSTITLE="Tenable Nessus (x64) - InstallShield Wizard"
 
+# The location to check to see when WinPCap is successfully installed
 $WINPCAP="C:\Program Files (x86)\WinPcap\rpcapd.exe"
 
-#Additional requirements, the winpcap_4_1_3.exe and 
-# the Nessus installer file in the local directory.
+###
+### End of User configuration variables
+###
 
 #Make sure WinPcap and Nessus are not already installed otherwise this script will fail.
 
