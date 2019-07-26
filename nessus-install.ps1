@@ -14,6 +14,8 @@ $NESSUSTITLE="Tenable Nessus - InstallShield Wizard"
 $NESSUSINSTALLER="Nessus-8.5.1-x64.msi"
 $NESSUSTITLE="Tenable Nessus (x64) - InstallShield Wizard"
 
+$WINPCAP="C:\Program Files (x86)\WinPcap\rpcapd.exe"
+
 #Additional requirements, the winpcap_4_1_3.exe and 
 # the Nessus installer file in the local directory.
 
@@ -42,11 +44,13 @@ sleep 1
 
 #Start the install and wait 30 seconds for it to finish
 $wpcshell.SendKeys("%I")
-sleep 15
+do { dir $WINPCAP 2>&1 > $null; $retval= $?; sleep 1 } while (! $retval)
 
 $wpcshell.SendKeys("%F")
 #Finished
 sleep 5
+
+
 
 #Start the installer and wait for it to run
 msiexec.exe /i $NESSUSINSTALLER /L*v! nessus-msi.log
@@ -73,13 +77,13 @@ sleep 1
 
 #Click Install button and wait for install to finish
 $wshell.SendKeys("i")
-sleep 30
+do { get-process -name nessusd 2>&1 > $null; $retval= $?; sleep 1 } while (! $retval)
 
 $wshell.SendKeys("F")
 #Finished!
 
 #Long delay here, because Nessus is going to pop up a web browser, which could interrupt the next process of user adding.
-sleep 30
+sleep 5
 
 #Add user
 echo "Creating Nessus user"
